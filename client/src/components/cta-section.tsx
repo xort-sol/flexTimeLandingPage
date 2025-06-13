@@ -38,8 +38,8 @@ export default function CTASection() {
           <Button
             onClick={scrollToContact}
             size="lg"
-            variant="outline"
-            className="border-2 border-white text-primary-foreground hover:bg-white hover:text-primary px-8 py-4 text-lg"
+            variant="secondary"
+            className="bg-white text-primary hover:bg-gray-50 px-8 py-4 text-lg"
           >
             <Phone className="mr-2 h-5 w-5" />
             Contact Us
