@@ -7,15 +7,17 @@ interface VideoPlayerProps {
 
 export default function VideoPlayer({ onClose }: VideoPlayerProps) {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
-      <div className="relative bg-white rounded-lg max-w-4xl w-full">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
+      <div className="relative w-full max-w-4xl bg-white rounded-xl shadow-xl overflow-hidden">
+        {/* Close Button */}
         <Button
           onClick={onClose}
           variant="ghost"
           size="icon"
-          className="absolute top-4 right-4 z-10"
+          className="absolute top-4 right-4 z-10 text-gray-700 hover:text-black"
+          aria-label="Close video player"
         >
-          <X className="h-6 w-6" />
+          <X className="w-6 h-6" />
         </Button>
         
         <div className="p-6">

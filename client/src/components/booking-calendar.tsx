@@ -3,9 +3,27 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
@@ -97,23 +115,23 @@ export default function BookingCalendar() {
   };
 
   return (
-    <section id="booking" className="bg-gray-50 py-20">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="booking" className="bg-background py-20">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-foreground mb-3">
             Book Your Studio Time
           </h2>
-          <p className="text-xl text-gray-600">
-            Select your preferred location, date, and time
+          <p className="text-lg text-muted-foreground">
+            Choose a location, date, and time slot that suits you.
           </p>
         </div>
 
-        <Card className="shadow-lg">
-          <CardContent className="p-8">
-            {/* Booking Form */}
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <Card className="rounded-2xl shadow-xl">
+          <CardContent className="p-8 space-y-6">
+            {/* Form Header */}
+            <div className="grid md:grid-cols-3 gap-6">
               <div>
-                <Label className="text-sm font-semibold text-gray-700 mb-3">
+                <Label className="text-sm font-medium mb-1 block">
                   Location
                 </Label>
                 <Select value={selectedLocation} onValueChange={setSelectedLocation}>
@@ -127,21 +145,18 @@ export default function BookingCalendar() {
               </div>
 
               <div>
-                <Label className="text-sm font-semibold text-gray-700 mb-3">
+                <Label className="text-sm font-medium mb-1 block">
                   Date
                 </Label>
                 <Input
                   type="date"
                   value={selectedDate}
                   onChange={(e) => setSelectedDate(e.target.value)}
-                  min={new Date().toISOString().split('T')[0]}
+                  min={new Date().toISOString().split("T")[0]}
                 />
               </div>
 
-              <div>
-                <Label className="text-sm font-semibold text-gray-700 mb-3">
-                  &nbsp;
-                </Label>
+              <div className="flex items-end">
                 <Button
                   onClick={handleSearch}
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
@@ -152,47 +167,45 @@ export default function BookingCalendar() {
               </div>
             </div>
 
-            {/* Available Time Slots */}
-            <div className="border border-gray-200 rounded-lg overflow-hidden">
-              <div className="bg-gray-50 px-6 py-4 border-b border-gray-200">
-                <h3 className="text-lg font-semibold text-gray-900">
+            {/* Time Slots */}
+            <div className="border rounded-xl overflow-hidden">
+              <div className="bg-muted px-6 py-3 border-b">
+                <h3 className="text-base font-semibold text-foreground">
                   Available Time Slots
                 </h3>
               </div>
               <div className="p-6">
                 {isLoading ? (
-                  <div className="text-center py-8">
-                    <div className="text-gray-500">Loading available slots...</div>
-                  </div>
+                  <p className="text-center text-muted-foreground">Loading available slots...</p>
                 ) : timeSlots && timeSlots.length > 0 ? (
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                     {timeSlots.map((slot) => (
                       <Button
                         key={slot.time}
-                        variant={slot.available ? "outline" : "secondary"}
+                        variant={slot.available ? "outline" : "ghost"}
                         disabled={!slot.available}
                         onClick={() => slot.available && handleTimeSlotSelect(slot.time)}
-                        className={`p-4 h-auto flex flex-col ${
+                        className={`flex flex-col py-4 ${
                           slot.available
-                            ? "hover:border-primary hover:bg-primary/5"
+                            ? "hover:border-primary hover:bg-primary/10"
                             : "opacity-50 cursor-not-allowed"
                         }`}
                       >
-                        <div className="font-semibold">{slot.time}</div>
-                        <div className="text-sm text-muted-foreground">
+                        <span className="font-medium">{slot.time}</span>
+                        <span className="text-xs text-muted-foreground">
                           {slot.available ? "Available" : "Booked"}
-                        </div>
+                        </span>
                       </Button>
                     ))}
                   </div>
                 ) : selectedDate && selectedLocation ? (
-                  <div className="text-center py-8 text-gray-500">
-                    No available slots found for the selected date and location.
-                  </div>
+                  <p className="text-center text-muted-foreground">
+                    No slots available for the selected date and location.
+                  </p>
                 ) : (
-                  <div className="text-center py-8 text-gray-500">
-                    Select a location and date to view available time slots.
-                  </div>
+                  <p className="text-center text-muted-foreground">
+                    Select a location and date to see available slots.
+                  </p>
                 )}
               </div>
             </div>
@@ -200,25 +213,23 @@ export default function BookingCalendar() {
         </Card>
       </div>
 
-      {/* Booking Modal */}
+      {/* Modal for Booking Form */}
       <Dialog open={showBookingModal} onOpenChange={setShowBookingModal}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle>Complete Your Booking</DialogTitle>
           </DialogHeader>
-          
+
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-              <div className="bg-gray-50 p-4 rounded-lg mb-4">
-                <div className="flex items-center gap-2 text-sm text-gray-600">
-                  <Calendar className="h-4 w-4" />
-                  <span>{selectedDate}</span>
-                  <Clock className="h-4 w-4 ml-2" />
-                  <span>{selectedTimeSlot}</span>
+              <div className="bg-muted px-4 py-3 rounded-md text-sm text-muted-foreground">
+                <div className="flex items-center gap-2 mb-1">
+                  <Calendar className="w-4 h-4" />
+                  {selectedDate}
+                  <Clock className="w-4 h-4 ml-4" />
+                  {selectedTimeSlot}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">
-                  {selectedLocation}
-                </div>
+                <div>{selectedLocation}</div>
               </div>
 
               <FormField
@@ -228,7 +239,7 @@ export default function BookingCalendar() {
                   <FormItem>
                     <FormLabel>Full Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter your full name" {...field} />
+                      <Input placeholder="Jane Doe" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -242,11 +253,7 @@ export default function BookingCalendar() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input
-                        type="email"
-                        placeholder="Enter your email"
-                        {...field}
-                      />
+                      <Input type="email" placeholder="jane@example.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -260,31 +267,18 @@ export default function BookingCalendar() {
                   <FormItem>
                     <FormLabel>Phone Number</FormLabel>
                     <FormControl>
-                      <Input
-                        type="tel"
-                        placeholder="Enter your phone number"
-                        {...field}
-                      />
+                      <Input type="tel" placeholder="(123) 456-7890" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
 
-              <div className="flex gap-3 pt-4">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => setShowBookingModal(false)}
-                  className="flex-1"
-                >
+              <div className="flex gap-2 pt-2">
+                <Button type="button" variant="outline" onClick={() => setShowBookingModal(false)} className="flex-1">
                   Cancel
                 </Button>
-                <Button
-                  type="submit"
-                  disabled={createBookingMutation.isPending}
-                  className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90"
-                >
+                <Button type="submit" className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90">
                   {createBookingMutation.isPending ? "Booking..." : "Confirm Booking"}
                 </Button>
               </div>

@@ -6,6 +6,7 @@ import FeaturesSection from "@/components/features-section";
 import TestimonialSection from "@/components/testimonial-section";
 import CTASection from "@/components/cta-section";
 import Footer from "@/components/footer";
+import FeaturesAtGlance from "@/components/features-at-glance";
 
 export default function Home() {
   return (
@@ -13,8 +14,9 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <BookingCalendar />
-      <HowItWorks />
+      <FeaturesAtGlance/>
       <FeaturesSection />
+      <HowItWorks />
       <TestimonialSection />
       <CTASection />
       <Footer />

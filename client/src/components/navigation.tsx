@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import clsx from "clsx";
+import Logo from "@/assets/navigation_bar_logo.svg";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,43 +16,35 @@ export default function Navigation() {
   };
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50">
+    <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/60 dark:bg-background/70 border-b border-border shadow-sm transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <div className="text-2xl font-bold text-primary">FlexTime</div>
-            </div>
+          <div className="flex-shrink-0">
+            <img
+              src={Logo}
+              alt="FlexTime Logo"
+              className="h-10 w-auto"
+            />
           </div>
-          
-          {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+
+          <div className="hidden md:flex space-x-6">
+            {["how-it-works", "features", "contact"].map((id) => (
               <button
-                onClick={() => scrollToSection("how-it-works")}
-                className="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
-                How It Works
+                {id
+                  .replace(/-/g, " ")
+                  .replace(/\b\w/g, (c) => c.toUpperCase())}
               </button>
-              <button
-                onClick={() => scrollToSection("features")}
-                className="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
-              >
-                Features
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors"
-              >
-                Contact
-              </button>
-            </div>
+            ))}
           </div>
-          
-          <div className="flex items-center space-x-4">
+
+          <div className="flex items-center space-x-3">
             <Button
               onClick={() => scrollToSection("booking")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all"
             >
               Book Now
             </Button>
@@ -60,38 +54,35 @@ export default function Navigation() {
               variant="ghost"
               size="icon"
               className="md:hidden"
+              aria-label="Toggle menu"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </Button>
           </div>
         </div>
-        
+
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t">
+        <div
+          className={clsx(
+            "md:hidden transition-all duration-300 ease-in-out overflow-hidden",
+            isMenuOpen ? "max-h-60 mt-2" : "max-h-0"
+          )}
+        >
+          <div className="flex flex-col bg-white dark:bg-background border rounded-lg shadow-md py-2 px-3 space-y-2">
+            {["how-it-works", "features", "contact"].map((id) => (
               <button
-                onClick={() => scrollToSection("how-it-works")}
-                className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary w-full text-left"
+                key={id}
+                onClick={() => scrollToSection(id)}
+                className="text-sm text-muted-foreground hover:text-primary text-left"
               >
-                How It Works
+                {id
+                  .replace(/-/g, " ")
+                  .replace(/\b\w/g, (c) => c.toUpperCase())}
               </button>
-              <button
-                onClick={() => scrollToSection("features")}
-                className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary w-full text-left"
-              >
-                Features
-              </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary w-full text-left"
-              >
-                Contact
-              </button>
-            </div>
+            ))}
           </div>
-        )}
+        </div>
       </div>
     </nav>
   );
