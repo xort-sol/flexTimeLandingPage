@@ -6,16 +6,6 @@ import introVideo from "@/assets/intro_video.mp4";
 
 export default function HeroSection() {
   const [showVideo, setShowVideo] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    // Ensure video plays when component mounts
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.log("Video autoplay failed:", error);
-      });
-    }
-  }, []);
 
   const scrollToBooking = () => {
     const element = document.getElementById("booking");
@@ -25,34 +15,16 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="bg-background py-20 lg:py-32 relative overflow-hidden">
-      {/* Background Video */}
-      <div className="absolute inset-0 w-full h-full">
-        <video
-          ref={videoRef}
-          className="w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster={introVideo}
-        >
-          <source src={introVideo} type="video/mp4" />
-        </video>
-        {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="bg-background py-20 lg:py-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
               Flexible Studio Rentals for{" "}
               <span className="text-primary">Fitness Professionals</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed max-w-xl">
+            <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
               Book premium fitness studio space by the hour. No long-term commitments,
               just flexible access to fully equipped studios when you need them.
             </p>
@@ -70,10 +42,10 @@ export default function HeroSection() {
                 onClick={() => setShowVideo(true)}
                 variant="outline"
                 size="lg"
-                className="text-base px-6 py-4 border-white text-white hover:bg-white hover:text-black transition"
+                className="text-base px-6 py-4 border-muted-foreground hover:bg-accent transition"
               >
                 <Play className="mr-2 h-5 w-5" />
-                Watch Full Video
+                Watch Intro Video
               </Button>
             </div>
           </div>
