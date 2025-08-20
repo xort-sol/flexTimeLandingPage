@@ -1,6 +1,6 @@
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import introVideo from "@/assets/intro_video.mp4";
+import introVideo from "@/assets/testimonial.mp4";
 
 interface VideoPlayerProps {
   onClose: () => void;

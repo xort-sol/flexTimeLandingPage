@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Calendar, Play } from "lucide-react";
 import VideoPlayer from "./video-player";
-import introVideo from "@/assets/intro_video.mp4";
+import introVideo from "@/assets/testimonial.mp4";
 
 export default function HeroSection() {
   const [showVideo, setShowVideo] = useState(false);
