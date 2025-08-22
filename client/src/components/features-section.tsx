@@ -1,6 +1,9 @@
 import { Palette, Dumbbell, Shield, Check } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import image1 from "../assets/image1.jpg";
+import image2 from "../assets/image2.jpg";
+import image3 from "../assets/image3.jpg";
 
 const features = [
   {
@@ -8,8 +11,7 @@ const features = [
     title: "Personalize Your Space",
     description:
       "Create a signature experience by customizing lighting, monitors, music, and streaming internet for your sessions.",
-    image:
-      "https://images.unsplash.com/photo-1549476464-37392f717541?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: image1,
     features: [
       "Custom lighting control",
       "Branded monitor displays",
@@ -24,8 +26,7 @@ const features = [
     title: "Premium Equipment",
     description:
       "Train with a full suite of equipment, including GorillaBow, TRX, weights, and yoga props.",
-    image:
-      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: image2,
     features: [
       "Free weights & kettlebells",
       "GorillaBow resistance training",
@@ -40,8 +41,7 @@ const features = [
     title: "No Risk, Maximum Flexibility",
     description:
       "Flexible hourly rentals with optional low-cost insurance to keep your business protected.",
-    image:
-      "https://images.unsplash.com/photo-1588286840104-8957b019727f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    image: image3,
     features: [
       "Hourly rental options",
       "No long-term commitments",
@@ -78,7 +78,9 @@ export default function FeaturesSection() {
                   <img
                     src={feature.image}
                     alt={feature.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 <CardContent className="p-6 md:p-8">

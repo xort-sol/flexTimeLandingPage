@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, Star } from "lucide-react";
 import VideoPlayer from "./video-player";
+import testimonialImage from "../assets/testimonial.jpg";
 
 export default function TestimonialSection() {
   const [showVideo, setShowVideo] = useState(false);
@@ -20,11 +21,11 @@ export default function TestimonialSection() {
           <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
             <div className="relative group aspect-video">
               <img
-                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src={testimonialImage}
                 alt="Trainer Testimonial"
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-90 transition-opacity"
               />
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* <div className="absolute inset-0 flex items-center justify-center">
                 <Button
                   onClick={() => setShowVideo(true)}
                   variant="ghost"
@@ -33,7 +34,7 @@ export default function TestimonialSection() {
                 >
                   <Play className="text-white h-8 w-8" />
                 </Button>
-              </div>
+              </div> */}
             </div>
 
             <div className="p-6 sm:p-8 text-left">
@@ -43,7 +44,7 @@ export default function TestimonialSection() {
 
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <div>
-                  <div className="font-semibold text-gray-900 dark:text-white text-lg">Sarah Johnson</div>
+                  <div className="font-semibold text-gray-900 dark:text-white text-lg">Julie</div>
                   <div className="text-gray-600 dark:text-gray-400 text-sm">Certified Personal Trainer</div>
                 </div>
                 <div className="flex items-center">
