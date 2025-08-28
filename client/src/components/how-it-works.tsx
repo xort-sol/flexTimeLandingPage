@@ -1,35 +1,47 @@
-import { Search, UserPlus, Clock, CalendarCheck } from "lucide-react";
+import { CalendarCheck, Megaphone, KeyRound, Sparkles, ThumbsUp } from "lucide-react";
 
 const steps = [
   {
-    icon: Search,
+    icon: CalendarCheck,
     number: 1,
-    title: "Find Studio Space",
-    description: "Trainers or teachers looking for studio space find a time for their class.",
+    title: "Book Your Time",
+    description:
+      "Book your private studio time and only pay for the time you use.",
     bgColor: "bg-primary/10",
     iconColor: "text-primary",
   },
   {
-    icon: UserPlus,
+    icon: Megaphone,
     number: 2,
-    title: "Sign Up",
-    description: "Sign up for FlexTime with no commitment required.",
+    title: "Promote Your Class",
+    description:
+      "Market your class with help from FlexTime social and our webpage.",
     bgColor: "bg-secondary/10",
     iconColor: "text-secondary",
   },
   {
-    icon: Clock,
+    icon: KeyRound,
     number: 3,
-    title: "Select Your Time",
-    description: "Choose from available time slots that fit your schedule.",
+    title: "Access The Studio",
+    description:
+      "Use remote access to enter the studio during your reserved time.",
     bgColor: "bg-accent/10",
     iconColor: "text-accent",
   },
   {
-    icon: CalendarCheck,
+    icon: Sparkles,
     number: 4,
-    title: "Book Studio Time",
-    description: "Confirm your booking and start using the studio!",
+    title: "Leave It Tidy",
+    description:
+      "Wrap up and leave the studio the way you found it.",
+    bgColor: "bg-blue-100",
+    iconColor: "text-blue-600",
+  },
+  {
+    icon: ThumbsUp,
+    number: 5,
+    title: "It's That Easy",
+    description: "Simple, flexible, and instructor-friendly from start to finish.",
     bgColor: "bg-green-100",
     iconColor: "text-green-600",
   },
@@ -44,11 +56,11 @@ export default function HowItWorks() {
             How It Works
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Simple steps to get you started with flexible studio rentals.
+            A streamlined flow designed around instructors.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
           {steps.map((step) => {
             const Icon = step.icon;
             return (

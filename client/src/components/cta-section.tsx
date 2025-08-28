@@ -23,14 +23,14 @@ export default function CTASection() {
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Button
+          {/* <Button
             onClick={scrollToBooking}
             size="lg"
             className="bg-white text-primary hover:bg-gray-100 hover:shadow-md px-8 py-4 text-lg font-medium transition"
           >
             <Calendar className="mr-2 h-5 w-5" />
             Book Now
-          </Button>
+          </Button> */}
           <Button
             onClick={scrollToContact}
             size="lg"

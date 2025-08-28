@@ -1,14 +1,14 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Calendar, Play } from "lucide-react";
+import { Mail, Play } from "lucide-react";
 import VideoPlayer from "./video-player";
 import introVideo from "@/assets/testimonial.mp4";
 
 export default function HeroSection() {
   const [showVideo, setShowVideo] = useState(false);
 
-  const scrollToBooking = () => {
-    const element = document.getElementById("booking");
+  const scrollToContact = () => {
+    const element = document.getElementById("contact");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
@@ -21,22 +21,23 @@ export default function HeroSection() {
           {/* Left Content */}
           <div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-tight mb-6">
-              Flexible Studio Rentals for{" "}
-              <span className="text-primary">Fitness Professionals</span>
+              Private Studio {" "}
+              <br />
+              <span className="text-primary">Rented By The Hour</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
-              Book premium fitness studio space by the hour. No long-term commitments,
-              just flexible access to fully equipped studios when you need them.
+              Book your own private studio by the hour and only pay for the time you use. <br />
+              Build your business without the overhead of owning or renting full time at FlexTime Studio.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
-                onClick={scrollToBooking}
+                onClick={scrollToContact}
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 text-base px-6 py-4 shadow-md transition"
               >
-                <Calendar className="mr-2 h-5 w-5" />
-                Book Studio Time
+                <Mail className="mr-2 h-5 w-5" />
+                Contact Us
               </Button>
               <Button
                 onClick={() => setShowVideo(true)}

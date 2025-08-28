@@ -41,7 +41,7 @@ export default function Navigation() {
             ))}
           </div>
 
-          <div className="flex items-center space-x-3">
+          {/* <div className="flex items-center space-x-3">
             <Button
               onClick={() => scrollToSection("booking")}
               className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all"
@@ -49,7 +49,6 @@ export default function Navigation() {
               Book Now
             </Button>
             
-            {/* Mobile menu button */}
             <Button
               variant="ghost"
               size="icon"
@@ -59,7 +58,7 @@ export default function Navigation() {
             >
               {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </Button>
-          </div>
+          </div> */}
         </div>
 
         {/* Mobile Menu */}

@@ -61,8 +61,9 @@ export default function FeaturesSection() {
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
             What You Get
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Everything you need for successful fitness sessions
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Your own private studio geared towards fitness instruction and available for meeting,
+            gathering and many other uses.
           </p>
         </div>
 
@@ -87,12 +88,12 @@ export default function FeaturesSection() {
                   <div className="flex items-center mb-4">
                     <div
                       className={cn(
-                        "w-12 h-12 rounded-full flex items-center justify-center mr-4",
+                        "w-10 h-10 rounded-full flex items-center justify-center mr-4",
                         feature.bgColor
                       )}
                     >
                       <Icon
-                        className={cn("w-6 h-6", feature.iconColor)}
+                        className={cn("w-5 h-5", feature.iconColor)}
                         aria-hidden="true"
                       />
                     </div>
@@ -111,6 +112,11 @@ export default function FeaturesSection() {
                       </li>
                     ))}
                   </ul>
+                  {feature.title === "Premium Equipment" && (
+                    <p className="mt-4 text-xs text-gray-500">
+                      Need something specific? We can provide additional equipment on request.
+                    </p>
+                  )}
                 </CardContent>
               </Card>
             );
