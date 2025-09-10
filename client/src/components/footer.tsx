@@ -78,7 +78,7 @@ export default function Footer() {
                 </div>
                 <div className="flex items-start gap-3">
                   <Mail className="h-5 w-5 mt-1" />
-                  <span>hello@flextime.com</span>
+                  <span>lee@flextimestudio.com</span>
                 </div>
               </div>
               <Button
