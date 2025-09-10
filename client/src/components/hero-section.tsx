@@ -15,7 +15,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="bg-background py-20 lg:py-32">
+    <section className="bg-background py-10 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -27,7 +27,7 @@ export default function HeroSection() {
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed max-w-xl">
               Book your own private studio by the hour and only pay for the time you use. <br />
-              Build your business without the overhead of owning or renting full time at FlexTime Studio.
+              Build your fitness business or host events without the overhead of owning or renting. 
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

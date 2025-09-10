@@ -67,7 +67,7 @@ export default function FeaturesSection() {
           </p>
         </div>
 
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
@@ -75,13 +75,13 @@ export default function FeaturesSection() {
                 key={feature.title}
                 className="overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 group"
               >
-                <div className="w-full h-48 overflow-hidden">
+                <div className="w-full aspect-video overflow-hidden">
                   <img
                     src={feature.image}
                     alt={feature.title}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full transition-transform duration-300 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 <CardContent className="p-6 md:p-8">
