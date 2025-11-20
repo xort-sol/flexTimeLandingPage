@@ -69,12 +69,12 @@ export default function Footer() {
                 <div className="flex items-start gap-3">
                   <MapPin className="h-5 w-5 mt-1" />
                   <span>140 Slades Ferry Ave, Somerset, MA 02726 <br />
-                  Slade's Ferry Business District <br />
-                  401.480.7644</span>
+                  Slade's Ferry Business District
+                  </span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Phone className="h-5 w-5 mt-1" />
-                  <span>(555) 123-4567</span>
+                  <span>401.480.7644</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Mail className="h-5 w-5 mt-1" />
